@@ -1,0 +1,12 @@
+{
+  "name": "Aidana",
+  "age": 20,
+  "isMarried": false,
+  "height": 187.1,
+  "address": {
+    "street": "Ibraimova 103",
+    "city": "Bishkek"
+  },
+  "favoriteColors": ["green", "black", "white", "null"]
+}
+
