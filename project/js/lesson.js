@@ -24,3 +24,10 @@ const increment = () => {
 }
 increment(count)
 requestAnimationFrame()
+
+// tab
+const tabContentBlock = document.querySelectorAll('tab')
+
+const hideTabContent = () => {
+     
+}

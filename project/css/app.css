@@ -1,0 +1,29 @@
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    background-color: silver;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+button {
+    width: 150px;
+    height: 60px;
+    background-color: yellow;
+    cursor: pointer;
+    font-size: 40px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.red {
+    background-color: red;
+}
