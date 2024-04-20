@@ -75,3 +75,33 @@ prev.onclick = () => {
 }
 
 autoSlider(index)
+
+
+//JSON
+const object = {
+    name:'Aidana',
+    age: 19
+
+}
+//console.log(JSON.parse)
+ const  json = JSON.stringify(object)
+const newObj = JSON.parse(json)
+
+
+//AJAX - Asynchronous javascript and xml - Ассинхроный javascript
+
+
+
+const button = document.querySelector('.btn')
+button.onclick = () => {
+    const request = new XMLHttpRequest()//1-создание шага
+    console.log(request)
+    request.open('GET', 'data.json')//2- указание адреса и метода запроса
+    request.setRequestHeader('Content-type','application/json')// 3-указание заголовка
+    request.send()//4-отправка запроса
+    console.log(request)
+    request.addEventListener('load',() =>{//оброботка запроса
+
+    })
+}
+

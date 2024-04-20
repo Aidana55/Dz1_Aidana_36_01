@@ -72,5 +72,68 @@ const tabfun = (i =0) => {
 
 }
 tabfun()
+//current
+
+const usdInput = document. querySelector('#usd')
+const somInput = document. querySelector('#som')
+const eurInput = document.querySelector('#eur')
+
+
+somInput. addEventListener('input',() =>{
+    const request = new XMLHttpRequest()
+    request.open('GET', '../data/converter.json')
+    request.setRequestHeader('Content-type', 'application/json')
+    request.send()
+
+    request. addEventListener('load', () =>{
+        const data = JSON.parse(request.response)
+        usdInput.value = (somInput.value / data.usd).toFixed(2)
+    })
+
+
+} )
+//DRY - dont repeat yourself
+const convert = (element, target, current) =>{
+    element.oninput = () => {
+        const request = new XMLHttpRequest()
+        request.open('GET', '..data/converter/json')
+        request.setRequestHeader('Content-type', 'application/json')
+        request.send()
+        request.onload = () => {
+            const data = JSON.parse(request.response)
+            switch (current){
+                case'som':
+                    target.value= (element.value / data.usd).toFixed(2)
+                    break
+                case 'usd':
+                    target.value= (element.value * data.usd).toFixed(2)
+                    break
+                default:
+                    break
+            }
+            element.value === '' && (target.value = '')
+        }
+
+    }
+
+
+}
+convert(somInput,usdInput,'som')
+convert(usdInput, somInput, 'usd')
+
+eurInput. addEventListener('input',() =>{
+    const request = new XMLHttpRequest()
+    request.open('GET', '../data/converter.json')
+    request.setRequestHeader('Content-type', 'application/json')
+    request.send()
+
+    request.addEventListener('load', () =>{
+        const data = JSON.parse(request.response)
+        ( usdInput.value = somInput.value / data.usd).toFixed(2)
+        ( usdInput.value = eurInput.value / data.usd).toFixed(2)
+        ( somInput.value = eurInput.value / data.usd).toFixed(2)
+    })
+
+    })
 
 
