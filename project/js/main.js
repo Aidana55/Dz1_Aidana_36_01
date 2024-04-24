@@ -105,3 +105,57 @@ button.onclick = () => {
     })
 }
 
+
+//Hell callback
+console.log('loading...')
+setTimeout(() =>{
+    const product ={
+        name: 'Milk',
+        price:'$4'
+    }
+    console.log(product)
+    setTimeout(() =>{
+        product.name = 'Milk Chocolate'
+        product.price = '$5'
+        console.log(product)
+    },1000)
+},1000)
+
+//promise-обещание
+console.log('loading...')
+
+const promise = new Promise((resolve,reject) =>{
+    setTimeout(() =>{
+        const product = {
+            name: 'Milk',
+            price: '$4'
+        }
+        console.log(product, '1 step')
+        resolve()
+    }, 3000)
+})
+
+const resolvePromise = () => {
+    console.log('ok')
+}
+const rejectPromise = () =>{
+    console.log('ok')
+
+}
+promise.then(resolvePromise)
+
+//API - application program interface
+//https://jsonplaceholder.typicode.com/posts
+
+
+//fetch() -под капотом испоьзует promise
+
+// fetch("https://jsonplaceholder.typicode.com/posts")
+//     .then((response) => response.json ())
+//     .then((data) =>{
+//         console.log(data)
+//
+//     })
+//
+//     }
+

@@ -93,7 +93,7 @@ somInput. addEventListener('input',() =>{
 
 } )
 //DRY - dont repeat yourself
-const convert = (element, target, current) =>{
+const convert = (element, target, target2, current) =>{
     element.oninput = () => {
         const request = new XMLHttpRequest()
         request.open('GET', '..data/converter/json')
@@ -104,12 +104,18 @@ const convert = (element, target, current) =>{
             switch (current){
                 case'som':
                     target.value= (element.value / data.usd).toFixed(2)
+                    target2.value= (element.value / data.eur).toFixed(2)
                     break
                 case 'usd':
                     target.value= (element.value * data.usd).toFixed(2)
+                    target2.value= (element.value * data.usd / data.usd).toFixed(2)
                     break
                 default:
                     break
+                case'eur':
+                    target2.value= (element.value * data.usd).toFixed(2)
+                    target.value= (element.value * data.usd) / data/usd.toFixed(2)
+
             }
             element.value === '' && (target.value = '')
         }
@@ -118,8 +124,9 @@ const convert = (element, target, current) =>{
 
 
 }
-convert(somInput,usdInput,'som')
-convert(usdInput, somInput, 'usd')
+convert(somInput,usdInput, eurInput,'som')
+convert(usdInput, somInput, eurInput ,'usd')
+convert(eurInput, somInput, usdInput,'usd')
 
 eurInput. addEventListener('input',() =>{
     const request = new XMLHttpRequest()
@@ -135,5 +142,49 @@ eurInput. addEventListener('input',() =>{
     })
 
     })
+// card SWITCHER
+
+const card = document.querySelector('.card')
+const btnNext = document.querySelector('#btn-next')
+const btnPrev = document.querySelector('#btn-prev')
+
+let count  = 1
 
 
+const prev = (num) => {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
+        .then (response => response.json())
+        .then (data =>{
+            card.innerHTML =   `
+            <p>${data.title}</p>
+            <p style="color: ${data.completed ? 'green' : 'red'}">${data.completed}</p>
+            <span>${data.id}</span>
+`
+        })
+
+}
+prev(count)
+
+btnPrev.onclick = () => {
+    count--
+    if (count<1){
+        count=200
+    }
+    prev(count)
+}
+btnNext.onclick = () =>{
+    count++
+    if (count>200){
+        count = 1
+    }
+    prev(count)
+}
+
+const fetch1 = () => {
+    fetch(`https://jsonplaceholder.typicode.com/posts` )
+        .then (response => response.json())
+        .then (data =>{
+            console.log(data)
+        })
+}
+fetch1()
