@@ -85,3 +85,4 @@ stop.addEventListener('click', buttonStop)
      flag = false
  }
 reset.addEventListener('click', buttonReset)
+

@@ -2,7 +2,7 @@
 /* PHONE CHECKER */
 
 .phone_block {
-    background: black;
+    background:#4C7B67;
     padding: 100px 0;
 }
 
@@ -30,7 +30,7 @@
 /* TAB SLIDER */
 
 .tab_slider {
-    background: black;
+    background:#4C7B67;
     padding: 100px 0;
 }
 
@@ -90,7 +90,7 @@
 /*------CARD SWITCHER------*/
 
 .card_switcher {
-    background-color: black;
+    background-color:#4C7B67;
     padding: 100px 0;
 }
 
@@ -129,7 +129,7 @@
 
 .converter {
     padding: 100px 0;
-    background-color: black;
+    background-color:#4C7B67;
 }
 
 .inner_converter {
@@ -150,7 +150,7 @@
 
 .weather {
     padding: 100px 0;
-    background-color: black;
+    background-color: #4C7B67;
 }
 
 .inner_weather > div {

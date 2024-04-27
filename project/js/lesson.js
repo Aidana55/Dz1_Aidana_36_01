@@ -163,9 +163,10 @@ const prev = (num) => {
         })
 
 }
+
 prev(count)
 
-btnPrev.onclick = () => {
+btnPrev.onclick = () => {0
     count--
     if (count<1){
         count=200
@@ -180,11 +181,51 @@ btnNext.onclick = () =>{
     prev(count)
 }
 
-const fetch1 = () => {
-    fetch(`https://jsonplaceholder.typicode.com/posts` )
-        .then (response => response.json())
-        .then (data =>{
-            console.log(data)
-        })
+const asyncData = async () => {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+        const responseData = await response.json()
+        console.log(responseData)
+    }catch (error){
+        console.error(error)
+    }
 }
-fetch1()
+asyncData()
+
+//weather
+const searchInput = document.querySelector(".cityName")
+const city = document.querySelector(".city")
+const temp = document.querySelector(".temp")
+
+
+const apiKey = 'e417df62e04d3b1b111abeab19cea714'
+const URL = 'http://api.openweathermap.org/data/2.5/weather'
+const citySearch = () => {
+    searchInput.oninput = async (event) => {
+        try {
+            const response = await fetch(`${URL}?q=${event.target.value}&appid=${apiKey}`)
+            const  data = await response.json()
+            city.innerHTML = data.name ? data.name: 'Not found &iquest;'
+            temp.innerHTML = data.main?.temp ? Math.round(data.main?.temp - 273) + '&deg;C' : '...'
+
+
+        }catch (error){
+            console.log('error')
+        }
+
+    }
+}
+
+citySearch()
+
+//optional chaining -.?
+
+// const address = {
+//     street: {
+//         home_number:103,
+//         street_name:'ibraimova'
+//     }
+// }
+// console.log(address.street?.street_name)
+
+

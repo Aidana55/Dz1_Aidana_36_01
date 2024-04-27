@@ -20,7 +20,7 @@ body {
     font-size: 20px;
     cursor: pointer;
     border: 1px solid var(--orange);
-    background: black;
+    background: #709844;
     color: var(--orange);
     border-radius: 8px;
 }
@@ -77,7 +77,7 @@ h4 {
 }
 
 strong {
-    color: #F79300;
+    color:#bfff8f;
 }
 
 label {
@@ -91,7 +91,7 @@ input {
     font-size: 20px;
     padding-left: 5px;
     color: var(--orange);
-    background: black;
+    background: #cbd9bc;
     border: 2px solid var(--orange);
 }
 
@@ -120,6 +120,6 @@ input {
 }
 
 :root {
-    --orange: orange;
-    --black: black;
+    --orange: yellow;
+    --black: #9CB17F;
 }
