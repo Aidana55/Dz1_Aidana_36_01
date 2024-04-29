@@ -6,7 +6,7 @@ const regExp =/^\w[a-z][a-zA-Z0-9._]+@gmail.com$/i
 button.onclick = () => {
   if (regExp.test(input.value)) {
       result.innerHTML = 'ok'
-      result.style.color ='green'
+      result.style.color ='yellow'
 
   }
   else {

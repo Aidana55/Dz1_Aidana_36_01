@@ -191,3 +191,25 @@
     display: flex;
     justify-content: space-between;
 }
+
+body {
+    background-color: #000000;
+}
+.header {
+    transition: top 0.5s ease;
+}
+
+
+
+
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #000000;
+}
+
